@@ -1,1 +1,1 @@
-# mastermind
+Pour lancer le jeu MASTERMIND : python ./jeu.py

@@ -4,7 +4,7 @@ import colorama
 def initialisation(): # Initialisation du plateau 
     color=["bleue","rouge","jaune","violet","rose","blanc"]
     guess = association_secrete(color)
-    print("============================================ MASTER MIND ============================================ \n")
+    print("\n\n============================================ MASTER MIND ============================================ \n")
     return color, guess
     
 
@@ -23,7 +23,8 @@ def association_user(color,guess,user) : # On initialise le joueur et sa combina
     over=0
 
     while not ok and over<=10:
-        print("\nTentative : "+str(over)+"/10")
+        print("\n========================================================================================================= \n")
+        print("Tentative : "+str(over)+"/10")
         over+=1
         association=input(user+" Veuillez saisir votre combinaision : \n\n"
                           +"- 0 pour "+colorama.Fore.BLUE+"Bleue\n"+colorama.Style.RESET_ALL
@@ -35,7 +36,7 @@ def association_user(color,guess,user) : # On initialise le joueur et sa combina
                           +colorama.Style.RESET_ALL).strip().split()
 
         if len(association) != 4 :
-            print("Veuillez saisir exactement 4 nombres !")
+            print("Veuillez saisir exactement 4 nombres !\n")
             continue
         if all(element.isdigit() and 0 <= int(element) <=5 for element in association) :
             color_user=convert_in_color(association,color)
@@ -52,9 +53,11 @@ def association_user(color,guess,user) : # On initialise le joueur et sa combina
                 print(f"Vous avez {yes} bonne{'s' if yes > 1 else ''} réponse{'s' if yes > 1 else ''} et "f"{no} mauvaise{'s' if no > 1 else ''} réponse{'s' if no > 1 else ''} : {validate}")
             else :
                 ok=True
-                print("__________________________________ Vous avez gagné ! __________________________________")
+                print("\n============================================ Vous avez gagné ! ============================================")
     if not ok : 
-        print("Fin de partie ! \nLa combinaison était : ",guess)
+        print("============================================ Fin de partie ! ============================================ ") 
+        print("La combinaison était : ",guess)
+        print("========================================================================================================= \n")
 
     return ok
             
